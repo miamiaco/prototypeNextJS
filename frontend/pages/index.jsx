@@ -41,7 +41,7 @@ export default function App() {
     };
 
     loadBatchesSequentially();
-  }, []); 
+  }, []);
 
    // Function to fetch recipes from the server
   const fetchRecipes = async (page, seed) => {
@@ -52,7 +52,7 @@ export default function App() {
 
   // Function to load more recipes
   const loadMore = async () => {
-    setShowLoadMore(false); 
+    setShowLoadMore(false);
 
     const currentFeedIndex = Number(sessionStorage.getItem('feedIndex')) || 0;
     const newFeedIndex = currentFeedIndex + 1;
@@ -63,7 +63,7 @@ export default function App() {
     } catch (error) {
       console.error("Failed to fetch more recipes:", error);
     } finally {
-      setShowLoadMore(true); 
+      setShowLoadMore(true);
     }
   };
 
@@ -77,7 +77,7 @@ export default function App() {
           left: 0,
           behavior: "smooth",
         });
-      }, 200); 
+      }, 200);
       sessionStorage.removeItem('scrollPosition');
     }
   }, [isLoading, batches]);
@@ -100,7 +100,7 @@ export default function App() {
 
 // Function to handle server-side rendering and authentication checks
 export async function getServerSideProps(context) {
-  
+
   const token = context.req.cookies.token;
   const jwtSecret = process.env.JWT_SECRET
   try {
@@ -115,7 +115,7 @@ export async function getServerSideProps(context) {
     jwt.verify(token, jwtSecret);
     return { props: {} };
   } catch (error) {
-    
+
     return {
       redirect: {
         destination: '/login',

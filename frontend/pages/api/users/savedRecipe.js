@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ error: 'User not found' });
       }
 
-      const isDuplicate = user.savedRecipes.some(savedRecipe => 
+      const isDuplicate = user.savedRecipes.some(savedRecipe =>
         savedRecipe.recipeId.equals(recipeId) && savedRecipe.category === category
       );
 
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       .populate({
         path: 'savedRecipes.recipeId',
         model: 'Recipe',
-  
+
       });
 
       if (!user) {
@@ -81,7 +81,7 @@ export default async function handler(req, res) {
       // Remove the recipe from savedRecipes array
       const initialLength = user.savedRecipes.length;
       user.savedRecipes = user.savedRecipes.filter(savedRecipe => !savedRecipe.recipeId.equals(recipeId));
-      
+
       if (initialLength === user.savedRecipes.length) {
         return res.status(404).json({ error: 'Recipe not found in saved list' });
       }
@@ -95,4 +95,4 @@ export default async function handler(req, res) {
     res.setHeader('Allow', ['POST', 'GET', 'DELETE']);
     res.status(405).end('Method Not Allowed');
   }
-}  
+}

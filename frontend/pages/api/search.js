@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         index: 'default',
         text: {
           query: query,
-          path: ['title', 'content', 'owner'], 
+          path: ['title', 'content', 'owner'],
         }
       }
     },

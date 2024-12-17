@@ -1,6 +1,5 @@
 import '../styles/global.css';
 import { UserProvider } from '../contexts/UserContext';
-import Head from 'next/head';
 import Script from 'next/script';
 
 export default function MyApp({ Component, pageProps }) {

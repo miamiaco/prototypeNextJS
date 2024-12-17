@@ -12,7 +12,7 @@ const SignupComponent = () => {
           name: '',
           password: '',
       });
-    
+
       // Handles changes in input fields and updates the user state
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -38,7 +38,7 @@ const SignupComponent = () => {
           alert('Password must be at least 5 characters.');
           return;
         }
-    
+
         try {
           // Makes a POST request to the registration API endpoint
           const response = await fetch('/api/users/register', {
@@ -53,13 +53,13 @@ const SignupComponent = () => {
           }
           const data = await response.json();
           console.log(data);
-          Router.push('/login'); 
+          Router.push('/login');
         } catch (error) {
           console.error('Registration Error:', error);
-          alert(error.message); 
+          alert(error.message);
         }
       };
-    
+
       return (
         <div className={styles.container}>
           <h1 className={styles.title}>miamia</h1>
@@ -102,9 +102,9 @@ const SignupComponent = () => {
                   className= {styles.inputfield}
                   required
                 />
-               <button 
-                  type="button" 
-                  onClick={togglePasswordVisibility} 
+               <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
                   className={styles.togglePasswordButton}
                   aria-label="Toggle password visibility"
                 >
@@ -114,10 +114,10 @@ const SignupComponent = () => {
               <button className={styles.submitButton} type="submit">Luo profiili</button>
             </form>
             <div className={styles.toOtherPage}>
-              Minulla on jo profiili. 
+              Minulla on jo profiili.
                 <Link href="/login" className={styles.linkToOtherPage}>
                   Kirjaudu sisään.
-                </Link> 
+                </Link>
               </div>
           </div>
         </div>

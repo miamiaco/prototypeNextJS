@@ -22,7 +22,7 @@ export default function ProfilePage() {
 
   // Handles server-side rendering for the profile page
   export async function getServerSideProps(context) {
-  
+
     const token = context.req.cookies.token;
     const jwtSecret = process.env.JWT_SECRET
     try {
@@ -37,7 +37,7 @@ export default function ProfilePage() {
       jwt.verify(token, jwtSecret);
       return { props: {} };
     } catch (error) {
-      
+
       return {
         redirect: {
           destination: '/login',

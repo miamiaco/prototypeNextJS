@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/searchcategories.module.css'; 
-import SaveRecipeModal from './SaveButton'; 
+import styles from '../styles/searchcategories.module.css';
+import SaveRecipeModal from './SaveButton';
 
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
@@ -53,11 +53,11 @@ function CategoriesComponent({ categories }) {
         }));
       }
     }, [categories]);
-  
+
   // Handles category selection to toggle display of recipes
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
-      setSelectedCategory(null); 
+      setSelectedCategory(null);
     } else {
       setSelectedCategory(category); // Open the clicked category
       // Initialize visible sets for a newly selected category if not already set

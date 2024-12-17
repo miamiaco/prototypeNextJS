@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/searchcategories.module.css'; 
+import styles from '../styles/searchcategories.module.css';
 import SaveRecipeModal from './SaveButton';
 
 // Helper function to get the first image URL from an array of images
@@ -30,7 +30,7 @@ export default function SearchResultsComponent({ searchResults }) {
 
   return (
     <div>
-      {Array.from({ length: visibleSets }, (_, index) => 
+      {Array.from({ length: visibleSets }, (_, index) =>
         <div key={index} className={styles.recipesGrid}>
           {searchResults.slice(index * 30, (index + 1) * 30).map((recipe) => (
             <div key={recipe._id} className={styles.recipeBlock}>
@@ -68,4 +68,4 @@ export default function SearchResultsComponent({ searchResults }) {
       {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
     </div>
   );
-};
+}

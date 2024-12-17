@@ -12,7 +12,7 @@ const LoginComponent = () => {
     const [error, setError] = useState('');
     const { fetchUser } = useUser()
     const [showPassword, setShowPassword] = useState(false)
-  
+
     // Handles form submission for user login
     async function handleSubmit(e) {
       e.preventDefault();
@@ -21,7 +21,7 @@ const LoginComponent = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-  
+
       // Navigate to home if login is successful, otherwise display error
       if (loginResponse.ok) {
         await fetchUser();
@@ -36,10 +36,10 @@ const LoginComponent = () => {
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
   };
-  
+
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>miamia</h1> 
+            <h1 className={styles.title}>miamia</h1>
             <div className={styles.formContainer}>
             <h2 className={styles.secondtitle}> Lets bring the magic back to the kitchen</h2>
             <h3 className={styles.thirdtitle}>Kirjaudu sisään</h3>
@@ -63,9 +63,9 @@ const LoginComponent = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   className={styles.inputfield}
                   />
-                  <button 
-                    type="button" 
-                    onClick={togglePasswordVisibility} 
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
                     className={styles.togglePasswordButton}
                     aria-label="Toggle password visibility"
                   >
@@ -76,10 +76,10 @@ const LoginComponent = () => {
               {error && <p className={styles.errorMessage}>{error}</p>}
               </form>
               <div className={styles.toOtherPage}>
-                Minulla ei ole vielä profiilia. 
+                Minulla ei ole vielä profiilia.
                   <Link href="/signup" className={styles.linkToOtherPage}>
                     Luo profiili.
-                  </Link> 
+                  </Link>
               </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ import { useUser } from '../contexts/UserContext';
 const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [newCategory, setNewCategory] = useState('');
-  const { user } = useUser(); 
+  const { user } = useUser();
 
   // Preset categories suggested to the user
   const suggestedCategories = [

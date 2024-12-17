@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
       setUser(null);
     }
   };
-  
+
 
   // Function to clear the user state, e.g., during logout
   const clearUser = () => {

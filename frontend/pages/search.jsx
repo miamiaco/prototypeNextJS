@@ -2,11 +2,11 @@ import Navbar from "@/components/Navbar";
 import React, { useState, } from 'react';
 import CategoriesComponent from "@/components/SearchCategories";
 import SearchComponent from "@/components/SearchRecipes";
-import SearchResultsComponent from "@/components/SearchRecipeResult"; 
+import SearchResultsComponent from "@/components/SearchRecipeResult";
 import dbConnect from '../src/utils/dbConnect';
 import Recipe from '../src/models/recipe';
 import mongoose from 'mongoose';
-import styles from '../styles/search.module.css'; 
+import styles from '../styles/search.module.css';
 
 export default function SearchPage({ categoriesWithRecipes }) {
   const [searchResults, setSearchResults] = useState([]);
@@ -42,7 +42,7 @@ export default function SearchPage({ categoriesWithRecipes }) {
       <Navbar />
       <SearchComponent onSearch={handleSearch} />
       {searching ? (
-        <p></p> 
+        <p></p>
       ) : searchResults.length > 0 ? (
         <SearchResultsComponent searchResults={searchResults} />
       ) : query.trim() && !searching && searchResults.length === 0 ? (
@@ -79,8 +79,8 @@ export async function getStaticProps() {
 
   // MongoDB aggregation pipeline to fetch categories with recipes
   const aggregationPipeline = [
-    { $match: { category: { $exists: true, $not: {$size: 0} } } },
-    { $unwind: "$category" }, 
+    { $match: { category: { $exists: true, $not: { $size: 0 } } } },
+    { $unwind: "$category" },
     {
       $group: {
         _id: "$category",
@@ -95,7 +95,7 @@ export async function getStaticProps() {
         }
       }
     },
-    { $match: { "_id": { $ne: "" } } }, 
+    { $match: { "_id": { $ne: "" } } },
     {
       $project: {
         _id: 0,

@@ -83,20 +83,20 @@ const UserCategories = () => {
         return (
           <div key={index} className={styles.categoryItem}>
             <div className={styles.catgoryWrapper}>
-              <h2 
-                className={styles.categoryTitle} 
-                onClick={() => handleCategoryClick(category)} 
-                role="button" 
+              <h2
+                className={styles.categoryTitle}
+                onClick={() => handleCategoryClick(category)}
+                role="button"
                 tabIndex={0}
               >
                 {category}
               </h2>
 
               {!selectedCategory && categoryImages[category] && (
-                <div 
-                  className={styles.categoryImageWrapper} 
-                  onClick={() => handleCategoryClick(category)} 
-                  role="button" 
+                <div
+                  className={styles.categoryImageWrapper}
+                  onClick={() => handleCategoryClick(category)}
+                  role="button"
                   tabIndex={0}
                 >
                   <Image
@@ -124,10 +124,10 @@ const UserCategories = () => {
                           layout="responsive"
                           className={styles.recipeImage}
                         />
-                      </Link> 
+                      </Link>
                       <div className={styles.ownerName}>{recipe.owner}</div>
-                      <button 
-                        className={styles.removeButton} 
+                      <button
+                        className={styles.removeButton}
                         onClick={() => handleRemoveRecipe(recipe._id)}
                       >
                         poista

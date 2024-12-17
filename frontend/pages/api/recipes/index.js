@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
     // If needed, convert the seed to an integer
     const seed = parseInt(seedRaw, 10);
-  
+
     const { page = 1 } = req.query;
     const batchSize = 20;
     const currentTime = new Date().getTime();
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
         cache.shuffledRecipes = seededShuffle(recipes, seed);
         cache.lastShuffleTime = currentTime;
     }
-  
+
     const startIndex = (page - 1) * batchSize;
     const selectedRecipes = cache.shuffledRecipes.slice(startIndex, startIndex + batchSize).map(recipe => ({
         _id: recipe._id.toString(),
@@ -58,6 +58,6 @@ export default async function handler(req, res) {
         owner: recipe.owner,
         firstImageUrl: recipe.images.length > 0 ? recipe.images[0] : null,
     }));
-  
+
     res.status(200).json(selectedRecipes);
 }

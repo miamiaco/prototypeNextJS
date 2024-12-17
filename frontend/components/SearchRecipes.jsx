@@ -13,7 +13,7 @@ const SearchComponent = ({ onSearch }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     onSearch(searchTerm); // Trigger the search in the parent component
   };
 

@@ -1,10 +1,10 @@
-import dbConnect from '../../../src/utils/dbConnect'; 
+import dbConnect from '../../../src/utils/dbConnect';
 import User from '../../../src/models/user';
 import bcrypt from 'bcrypt';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    
+
     try {
       await dbConnect();
 

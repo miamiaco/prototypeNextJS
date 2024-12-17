@@ -22,9 +22,9 @@ export default function Feed({ batches }) {
         <div key={batchIndex} className={styles.batchContainer}>
           <div className={styles.feedcontainer}>
             {recipes.map(recipe => (
-              <div className={styles.recipeBlock} key={recipe._id || recipeIndex}>
+              <div className={styles.recipeBlock} key={recipe._id}>
                 <div className={styles.recipeCard} >
-                  <Link href={`/${recipe.title}`} 
+                  <Link href={`/${recipe.title}`}
                   onClick={() =>
                     sessionStorage.setItem('scrollPosition', window.pageYOffset)
                   }>
@@ -32,8 +32,8 @@ export default function Feed({ batches }) {
                       width={200}
                       height={500}
                       style={{ width: '100%', height: '100%' }}
-                      className={styles.recipeImage} 
-                      src={recipe.firstImageUrl} 
+                      className={styles.recipeImage}
+                      src={recipe.firstImageUrl}
                       alt={recipe.title}
                       layout="responsive"
                       blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
